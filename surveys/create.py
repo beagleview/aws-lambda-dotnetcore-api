@@ -22,6 +22,8 @@ def create(event, context):
         'id': str(uuid.uuid1()),
         'fname': data['fname'],
         'lname': data['lname'],
+        'nickname': data['nickname'],
+        'gender': data['gender'],
         'checked': False,
         'createdAt': timestamp,
         'updatedAt': timestamp,
