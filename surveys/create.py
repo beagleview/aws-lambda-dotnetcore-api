@@ -9,16 +9,19 @@ import boto3
 dynamodb = boto3.resource('dynamodb')
 def create(event, context):
     data = json.loads(event['body'])
+    if 'text' not in data:
+        logging.error("Validation Failed")
+        raise Exception("Couldn't create the todo item.")
+        return
+
     timestamp = int(time.time() * 1000)
 
     table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
 
     item = {
         'id': str(uuid.uuid1()),
-        'firstName': data['firstName'],
-        'lastName': data['lastName'],
-        'nickName': data['nickName'],
-        'gender': False,
+        'text': data['text'],
+        'checked': False,
         'createdAt': timestamp,
         'updatedAt': timestamp,
     }
