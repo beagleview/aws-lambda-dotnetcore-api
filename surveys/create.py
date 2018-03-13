@@ -18,6 +18,7 @@ def create(event, context):
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
+    stStatus =  data['status']
 
     item = {
         'id': str(uuid.uuid1()),
@@ -25,6 +26,9 @@ def create(event, context):
         'lname': data['lname'],
         'nickname': data['nickname'],
         'gender': data['gender'],
+        'room': data['room'],
+        'no': data['no'],
+        'status': stStatus,
         'checked': False,
         'createdAt': timestamp,
         'updatedAt': timestamp,
