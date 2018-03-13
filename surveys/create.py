@@ -14,7 +14,7 @@ def create(event, context):
         raise Exception("Couldn't create the todo item.")
         return
 
-    timestamp = int(time.time() * 1000)
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
 
