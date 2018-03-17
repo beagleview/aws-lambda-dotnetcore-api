@@ -19,20 +19,26 @@ def create(event, context):
 
     table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
     stStatus =  data['status']
-
     item = {
-        'id': str(uuid.uuid1()),
-        'fname': data['fname'],
-        'lname': data['lname'],
-        'nickname': data['nickname'],
-        'gender': data['gender'],
-        'room': data['room'],
-        'no': data['no'],
-        'status': stStatus,
-        'checked': False,
-        'createdAt': timestamp,
-        'updatedAt': timestamp,
-    }
+            'id': str(uuid.uuid1()),
+            'fname': data['fname'],
+            'lname': data['lname'],
+            'nickname': data['nickname'],
+            'gender': data['gender'],
+            'room': data['room'],
+            'no': data['no'],
+            'status': stStatus,
+            'checked': False,
+            'createdAt': timestamp,
+            'updatedAt': timestamp,
+        }
+
+    if stStatus == '1':
+        item.update({
+            'university ':data['university'],
+            'major':data['major']
+        })
+        
 
     # write the todo to the database
     table.put_item(Item=item)
