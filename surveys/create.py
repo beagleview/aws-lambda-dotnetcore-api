@@ -4,7 +4,6 @@ import os
 import time
 import uuid
 import datetime
-
 import boto3
 
 dynamodb = boto3.resource('dynamodb')
@@ -28,18 +27,29 @@ def create(event, context):
             'room': data['room'],
             'no': data['no'],
             'status': stStatus,
-            'checked': False,
             'createdAt': timestamp,
             'updatedAt': timestamp,
         }
 
     if stStatus == '1':
         item.update({
-            'university ':data['university'],
+            'university':data['university'],
+            'faculty':data['faculty'],
+            'major':data['major'],
+            'round':data['round'],
+            'confirm':data['confirm']
+        })
+    elif stStatus =='2' :
+        item.update({
+            'university':data['university'],
+            'faculty':data['faculty'],
             'major':data['major']
         })
+    elif stStatus == '5':
+        item.update({
+            'condition':data['condition']
+        })
         
-
     # write the todo to the database
     table.put_item(Item=item)
 
