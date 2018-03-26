@@ -6,7 +6,6 @@ provider:
   name: aws
   runtime: python3.6
   region: ap-southeast-1
-  stage: dev
   environment:
     DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
   iamRoleStatements:
