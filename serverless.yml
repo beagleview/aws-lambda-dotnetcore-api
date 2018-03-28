@@ -26,7 +26,10 @@ functions:
       - http:
           path: surveys
           method: post
-          cors: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
 
   list:
     handler: surveys/list.list
@@ -34,7 +37,10 @@ functions:
       - http:
           path: surveys
           method: get
-          cors: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
 
   get:
     handler: surveys/get.get
@@ -42,7 +48,10 @@ functions:
       - http:
           path: surveys/{id}
           method: get
-          cors: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
 
   delete:
     handler: surveys/delete.delete
@@ -50,7 +59,10 @@ functions:
       - http:
           path: surveys/{id}
           method: delete
-          cors: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
 
 resources:
   Resources:
