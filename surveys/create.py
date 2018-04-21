@@ -70,7 +70,7 @@ def create(event, context):
             "statusCode": 504,
             "body": json.dumps(item)
         }
-    except:
+    except Exception:
         response = {
             "statusCode": 500,
             "body": json.dumps(item)
