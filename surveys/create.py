@@ -9,11 +9,6 @@ import boto3
 dynamodb = boto3.resource('dynamodb')
 def create(event, context):
     data = event
-    if 'fname' not in data:
-        logging.error("Validation Failed")
-        raise Exception("Couldn't create the todo item.")
-        return
-
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
@@ -62,7 +57,7 @@ def create(event, context):
 
         # create a response
         response = {
-            "statusCode": 500,
+            "statusCode": 200,
             "body": json.dumps(item)
         }
     except ValueError:
