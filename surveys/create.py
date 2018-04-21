@@ -27,18 +27,13 @@ def create(event, context):
             }
 
         if stStatus == '1':
-            project = ''
-            try:
-                project = data['projectname']
-            finally:
-                project = ''
             item.update({
                 'university':data['university'],
                 'faculty':data['faculty'],
                 'major':data['major'],
                 'round':data['round'],
                 'confirm':data['confirm'],
-                'project': project
+                'project':data['projectname']
             })
         elif stStatus =='2' :
             item.update({
