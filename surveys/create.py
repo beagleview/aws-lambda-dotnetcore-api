@@ -8,11 +8,10 @@ import boto3
 
 dynamodb = boto3.resource('dynamodb')
 def create(event, context):
-    data = event
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
     table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
     try :
+        data = event
         stStatus =  data['status']
         item = {
                 'id': str(uuid.uuid1()),
