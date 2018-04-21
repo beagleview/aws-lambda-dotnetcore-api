@@ -42,9 +42,9 @@ def create(event, context):
             })
         elif stStatus =='2' :
             item.update({
-                'university':data['university'],
-                'faculty':data['faculty'],
-                'major':data['major']
+                'university':data['uni'],
+                'faculty':data['fac'],
+                'major':data['maj']
             })
         elif stStatus == '5':
             item.update({
