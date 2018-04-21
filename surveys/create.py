@@ -64,6 +64,11 @@ def create(event, context):
             "statusCode": 504,
             "body": json.dumps(item)
         }
+    except UnboundLocalError:
+        response = {
+            "statusCode": 501,
+            "body": json.dumps(item)
+        }
     except Exception:
         response = {
             "statusCode": 500,
