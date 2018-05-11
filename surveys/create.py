@@ -28,12 +28,15 @@ def create(event, context):
 
         if stStatus == '1':
             item.update({
-                'university':data['university'],
-                'faculty':data['faculty'],
-                'major':data['major'],
-                'round':data['round'],
-                'confirm':data['confirm'],
-                'project':data['projectname']
+                'university': data['university'],
+                'faculty': data['faculty'],
+                'major': data['major'],
+                'round': data['round'],
+                'confirm': data['confirm'],
+                'project': data['projectname'],
+                'uniText': data['uniText'],
+                'facText': data['facText'],
+                'majText': data['majText']
             })
         elif stStatus =='2' :
             item.update({
