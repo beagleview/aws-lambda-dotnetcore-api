@@ -44,7 +44,7 @@ def create(event, context):
                 'faculty':data['fac'],
                 'major':data['maj']
             })
-        elif stStatus == '5':
+        elif stStatus == '5' or stStatus == '3':
             item.update({
                 'condition':data['condition']
             })
