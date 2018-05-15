@@ -53,16 +53,6 @@ functions:
             headers:
               - Content-Type
 
-  delete:
-    handler: surveys/delete.delete
-    events:
-      - http:
-          path: surveys/{id}
-          method: delete
-          cors:
-            origin: '*'
-            headers:
-              - Content-Type
 
 resources:
   Resources:
